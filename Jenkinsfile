@@ -6,7 +6,12 @@ pipeline {
     }
 
     stages {
-
+        stage('git checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/aa30sharma/test.git'
+                }
+            }
+        }
         stage('Push Tag') {
             steps {
                 script {
