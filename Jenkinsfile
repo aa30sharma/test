@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                         sh "git tag ${TAG_NAME} "
-                        sh "git push origin ${TAG_NAME}
+                        sh "git push origin ${TAG_NAME} "
                 }
             }
         }
