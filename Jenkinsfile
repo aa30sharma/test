@@ -14,8 +14,12 @@
             stage('Push Tag') {
                 steps {
                     script {
+                      withCredentials([usernamePassword(credentialsId: 'GITHUB_TOKEN', passwordVariable: 'git_password', usernameVariable: 'git_username')]) {
+                        sh "git config --global user.email 'sharmaaatish552@gmail.com'"
+                        sh "git config --global user.name 'aa30sharma'"
                         sh "git tag ${TAG_NAME} "
                         sh "git push -u origin ${TAG_NAME} "
+                      }
                     }
                 }
             }
